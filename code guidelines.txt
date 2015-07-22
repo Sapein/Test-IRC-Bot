@@ -16,6 +16,9 @@ The Public API shall be subject to Semantic Versioning, which may be read from h
 ---Comments---
 Comments should be done in standard # format, unless it is meant to be a docstring. Docstrings should only be used for Public Methonds, and Modules, and classes(when applicable).
 
+---Method/Function Names---
+Prefixing may be used. If prefixing is used, then the prefix must be the return type. It is also reccomended for this to only apply to private methods.
+
 ---Prefix Types---
 sp = Split: Used for variables to store split strings. The intention of split strings are to be recombined or to gain elements from them. 
 
