@@ -1,0 +1,28 @@
+This document is designed to be the authority on the guidelines and standards of coding within this project. Anything not listed or covered will be over PEP:0008, and Sapein shall be the final authority to make anydecision regarding any dispute over this document. Sapein shall be the only person allowed to update this. Any changes to who can update it will be done with an update to the previous sentence.
+
+
+---Line Breaks---
+All linebreaks involving strings shall exclipitly combine them (+) and use back-slash (\). 
+
+---Spacing and Indentation--- 
+Spacing shall use four spaces. If you use VIM then please do set tabstops=4, set expandtab, and set shiftwidth=4, afterwards you may hit tab. 
+
+---Variable Names---
+All variables shall use Apps Hungarian Notation. The prefix types are listed below. However please prefix variables with the intent. 
+
+---Versioning---
+The Public API shall be subject to Semantic Versioning, which may be read from here: http://semver.org/
+
+---Comments---
+Comments should be done in standard # format, unless it is meant to be a docstring. Docstrings should only be used for Public Methonds, and Modules, and classes(when applicable).
+
+---Prefix Types---
+sp = Split: Used for variables to store split strings. The intention of split strings are to be recombined or to gain elements from them. 
+
+rb = Raw Byte: This is Raw Data, and must be converted into a string before it may be used anywhere. The only exception is being sent back out over the network. 
+
+nu = Not UTF-8(Unicode): This is used if Raw Data is not encoded into utf-8 and stored. Ex: If I have a standard response and I store it and encode it, if it is not encoded UTF-8 then it uses nu instead of rb. It is also to be used if reciving data from and it isn't UTF-8 encoded. rb and nu should never be merged.
+
+rg = Random Generated: This is used when something is generated randomly by the Python random module. The data from here should not be used except for generating Passwords and the like. 
+
+  
