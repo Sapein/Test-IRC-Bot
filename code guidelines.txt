@@ -24,5 +24,3 @@ rb = Raw Byte: This is Raw Data, and must be converted into a string before it m
 nu = Not UTF-8(Unicode): This is used if Raw Data is not encoded into utf-8 and stored. Ex: If I have a standard response and I store it and encode it, if it is not encoded UTF-8 then it uses nu instead of rb. It is also to be used if reciving data from and it isn't UTF-8 encoded. rb and nu should never be merged.
 
 rg = Random Generated: This is used when something is generated randomly by the Python random module. The data from here should not be used except for generating Passwords and the like. 
-
-  
