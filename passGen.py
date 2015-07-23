@@ -1,15 +1,15 @@
 import random
 
 def rgPass():
-	rSeed = random.seed()
-	rSeed = random.seed(rSeed)
-	rValue = str(round(random.random()))
-	rPass = rValue
+	rgSeed = random.seed()
+	rgSeed = random.seed(rSeed)
+	rgValue = str(round(random.random()))
+	rgPass = rgValue
 	i = 0
 	while True:
-		rInt = random.randrange(9)
-		rPass = str(rPass) + str(rInt)
+		rgInt = random.randrange(9)
+		rgPass = str(rgPass) + str(rgInt)
 		i += 1
 		if i > 9:
-			return rPass
+			return rgPass
 

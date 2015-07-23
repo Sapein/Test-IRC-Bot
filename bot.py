@@ -1,7 +1,8 @@
-import socket
-import threading
-import _threads
-import time
+import confighandle 
 
 def Main():
+    confighandle.openConfigFile()              
 
+
+if __name__ == "__main__":
+    Main()
