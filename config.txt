@@ -1,15 +1,14 @@
-#Config File for Sapein's IRC Bot
-#Version: 1.0
+Config File for Sapein's IRC Bot:
+Version: 1.0
 
-##Connection##
+::Connection::
 irc server: irc.darknedgy.net
 port: 6667
 channel: #darknedgy
 
-##Bot Information##
+::Bot Information::
 Bot Nick: SapeinBot|Py
-Threaded: False #NOT IMPLIMENTED
 
-##Modules##
-To add modules just add the name, ex: threading. or if it has a package include it in the package name
-sapeinbot.standard #NOTE - This is just a psudeo import for the standard modulesit is shorter than writing every module to include.
+::Modules::
+To add modules just add the name, ex: threading. or if it has a package include it in the package name:
+sapeinbot.standard

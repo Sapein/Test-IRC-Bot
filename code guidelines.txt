@@ -19,6 +19,11 @@ Comments should be done in standard # format, unless it is meant to be a docstri
 ---Method/Function Names---
 Prefixing may be used. If prefixing is used, then the prefix must be the return type. It is also reccomended for this to only apply to private methods.
 
+Further names using abbriviations are to use under-scores in their names. Unless they are more than 90 characters long in name, in which case they are to use standard camel case. 
+ 
+--Strings--
+When using strings longer than 1 word use " ", otherwise use ''. Use '' also for any encoding or similar
+
 ---Prefix Types---
 sp = Split: Used for variables to store split strings. The intention of split strings are to be recombined or to gain elements from them. 
 
@@ -35,3 +40,5 @@ tok = TCP Socket: This is to be used when there are multiple socket types, mainl
 dok = UDP Soket: This is to be used when there are multiple socket types, mainly TCP and UPD
 
 ls = List: This is only to be used for global lists
+
+strp = Stripped: Used if it's a stripped string (ex: Stripping '\n' off of the text)

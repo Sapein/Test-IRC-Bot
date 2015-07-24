@@ -1,7 +1,10 @@
+import botConfigs 
 def openConfigFile():
+    botConfigs.load_config()
+
+def _openConfigFile():
     try:
-        config = open("config.txt", "r")
-        config.close()
+        values = []
         values = readConfigFile()
         return values 
     except IOError as e:
@@ -10,70 +13,63 @@ def openConfigFile():
 
 def createConfigFile():
     config = open("config.txt", "w")
-    config.write("#Config File for Sapein's IRC Bot\n")
-    config.write("#Version: 1.0\n")
+    config.write(":Config File for Sapein's IRC Bot\n")
+    config.write("Version: 1.0\n")
     config.write("\n")
-    config.write("##Connection##\n")
+    config.write("::Connection::\n")
     config.write("irc server: irc.darknedgy.net\n")
     config.write("port: 6667\n")
     config.write("channel: #darknedgy\n")
     config.write("\n")
-    config.write("##Bot Information##\n")
+    config.write("::Bot Information::\n")
     config.write("Bot Nick: SapeinBot|Py\n")
-    config.write("Threaded: False *NOT IMPLIMENTED\n")
     config.write("\n")
-    config.write("##Modules##\n")
-    config.write("*To add modules just add the name, ex: threading. or if it has a package include "+\
-            "it in the package name\n")
-    config.write("sapeinbot.standard *NOTE - This is just a psudeo import for the standard modules"+\
-            "it is shorter than writing every module to include.\n")
+    config.write("::Modules::\n")
+    config.write("sapeinbot.standard\n")
     
 def readConfigFile():
     values = []
-    while open('config.txt') as config:
-        for line in config:
-            stuff = config.readline()
-            if "#" in stuff:
-                stuff.strip('\n')
-                spStuff = stuff.split()
-                if "1.0" in stuff:
-                    version = stuff.split
-                    values = readV1ConfigFile(version)
-                    config.close()
-                    return values
-   return values
+    version = ""
+    conf = open('config.txt', "r")
+    conf.readline()
+    version = conf.readline()
+    version = version.strip('\n')
+    spVersion = version.split(":")
+    version = spVersion[1]
+    if "1.0" in version:
+        conf.close()
+        values = readV1Config(version)
+        return values
+    return values
 def readV1Config(version):
     values = []
     modules = []
-    while open('config.txt') as config:
-        for line in config:
-            value = config.readline()
-            try:
-                value.split("#")
-            else:
-                spValue = value.split("*")
-                value = spValue[0]
-                if "Threaded" in value:
-                    spValue = value.split(":")
-                    values.append(spValue[1])
-                if "sapeinbot.standard" in value:
-                    modules.add("ircconnect")
-                    modules.add("ircvalues")
-            else:
-                spValue = value.split(":")
-                if "irc server" in spValue[0]:
-                    values.append(spValue[1])
-                if "port" in spValue[0]:
-                    values.append(spValue[1])
-                if "channel" in spValue[0]:
-                    values.append(spValue[1])
-                if "Nick" in  spValue[0]:
-                    values.append(spValue[1])
+    config = open('config.txt', 'r')
+    for line in config:
+        print(line)
+        value = config.readline()
+        config(value)
+        value = value.strip('\n')
+        spValue = value.split(":")
+        if "sapeinbot.standard" in spValue:
+            modules.append("ircconnect")
+            modules.append("ircvalue")
+        if "irc server" in spValue:
+            print(spValue[1])
+            values.append(spValue[1])
+            print('i')
+        if "port" in spValue:
+            values.append(spValue[1])
+        if "channel" in spValue:
+            values.append(spValue[1])
+        if "Nick" in  spValue:
+            values.append(spValue[1])
           
-            try:
-                modules.append(value)
-            except:
-                values.append(modules)
-                return values
-
+        try:
+            modules.append(value)
+        except:
+            values.append(modules)
+            return values
+    print(modules)
+    print(values)
     return values
